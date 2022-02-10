@@ -1,0 +1,23 @@
+{
+  "name": "sunflower-land",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "forwardPorts": [
+    3000,
+    3001
+  ],
+  "containerEnv": {
+    "DEV_PORT": "3000"
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/home/node/sunflower-land,type=bind",
+    "source=npm_global_cache,target=/home/node/.npm-global,type=volume",
+    "source=yarn_cache,target=/home/node/.cache/yarn,type=volume"
+  ],
+  "postCreateCommand": "yarn install",
+  "extensions": [
+    "esbenp.prettier-vscode",
+    "JuanBlanco.solidity"
+  ]
+}
